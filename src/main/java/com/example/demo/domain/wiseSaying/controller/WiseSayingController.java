@@ -40,4 +40,10 @@ public class WiseSayingController {
         // 변수가 같으면 () 는 생략 가능하다.
         return wiseSayingService.getItem(id).orElse(null);
     }
+
+    @GetMapping("/wiseSayings/{id}/delete")
+    // @DeleteMapping("/wiseSayings/{id}") // 이렇게 써도 된다. 그러나 아직..
+    public boolean deleteItem(@PathVariable int id) {
+        return wiseSayingService.deleteById(id);
+    }
 }
