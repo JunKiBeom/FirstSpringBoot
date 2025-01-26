@@ -29,4 +29,19 @@ public class WiseSayingController {
 
         return wiseSayingService.write(content, author);
     }
+
+    //  GET  /wiseSayings  -> 명언들을 가져와라
+    //  GET  /wiseSayings/1 -> 명언들 중에서 1번 가져와라
+
+    @GetMapping("/wiseSayings/1")
+    public WiseSaying getItem1() {
+        return wiseSayingService.getItem(1).orElse(null);
+    }
+
+    @GetMapping("/wiseSayings/2")
+    public WiseSaying getItem2() {
+        return wiseSayingService.getItem(2).orElse(null);
+    }
+
+
 }
