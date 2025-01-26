@@ -2,14 +2,19 @@ package com.example.demo.domain.wiseSaying.service;
 
 
 import com.example.demo.domain.wiseSaying.entitiy.WiseSaying;
-import org.springframework.stereotype.Component;
+import com.example.demo.domain.wiseSaying.repository.WiseSayingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class WiseSayingService {
+
+    @Autowired
+    private WiseSayingRepository wiseSayingRepository;
 
     private List<WiseSaying> wiseSayingList;
     private int lastId;
