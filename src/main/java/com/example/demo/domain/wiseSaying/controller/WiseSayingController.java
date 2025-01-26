@@ -4,6 +4,7 @@ import com.example.demo.domain.wiseSaying.entitiy.WiseSaying;
 import com.example.demo.domain.wiseSaying.service.WiseSayingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -33,15 +34,10 @@ public class WiseSayingController {
     //  GET  /wiseSayings  -> 명언들을 가져와라
     //  GET  /wiseSayings/1 -> 명언들 중에서 1번 가져와라
 
-    @GetMapping("/wiseSayings/1")
-    public WiseSaying getItem1() {
-        return wiseSayingService.getItem(1).orElse(null);
+    @GetMapping("/wiseSayings/{id}")
+    public WiseSaying getItem1(@PathVariable int id) {
+        //@PathVariable("id") int id 는 /wiseSayings/{id} 에서 {id}에 해당하는 값을 int id에 넣어준다.
+        // 변수가 같으면 () 는 생략 가능하다.
+        return wiseSayingService.getItem(id).orElse(null);
     }
-
-    @GetMapping("/wiseSayings/2")
-    public WiseSaying getItem2() {
-        return wiseSayingService.getItem(2).orElse(null);
-    }
-
-
 }
